@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    padding: 0 15px;
     width: 100%;
     height: 100vh;
     border: 1px solid black;
@@ -68,6 +69,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slider__item {
+    position: relative;
     font-family: 'Montserrat', sans-serif;
     color: white;
     text-align: left;
@@ -77,8 +79,16 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 0.7;
 }
 
-.slider__item.active {
-    opacity: 1;
+.slider__item.active:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -2px;
+    z-index: 5;
+    width: 40%;
+    height: 3px;
+    background-color: #f38181;
 }
 
 .slider__num {
@@ -94,6 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Header */
 .header {
+    padding: 0 15px;
     top: 0;
     left: 0;
     right: 0;
@@ -110,6 +121,53 @@ h1, h2, h3, h4, h5, h6 {
 .header__logo {
     font-size: 30px;
     color: #fff;
+}
+
+/* Header Menu */
+.header__menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.header__menu-inner {
+    font-size: 0;
+    color: transparent;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+}
+
+.header__menu-inner.active {
+    display: none;
+}
+
+.header__menu-inner:before,
+.header__menu-inner:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color: white;
+}
+
+.header__menu-inner:before {
+    top: -8px;
+}
+
+.header__menu-inner:after {
+    top: 8px;
 }
 
 /* Nav */
@@ -236,11 +294,13 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 110px;
+    flex-wrap: wrap;
 }
 
 .about__item {
     position: relative;
-    width: 380px;
+    flex-basis: 30%;
+    max-width: 380px;
     background: #95e1d3;
 }
 
@@ -250,6 +310,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about__img img {
+    width: 100%;
+    height: auto;
+    max-width: 380px;
     display: block;
 }
 
@@ -291,11 +354,12 @@ h1, h2, h3, h4, h5, h6 {
 .stats {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .stats__item {
+    flex-basis: 20%;
     padding: 70px 35px;
-    flex: 1 1 0;
     border-left: 1px solid white;
     text-align: center;
 }
@@ -1093,4 +1157,127 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer__outro a {
     color: #f38181;
+}
+
+@media (max-width: 1230px) {
+    /*    Intro    */
+    .intro__main-title {
+        font-size: 90px;
+    }
+
+    .intro__sup-title {
+        font-size: 44px;
+    }
+}
+
+@media (max-width: 990px) {
+    /*    Intro    */
+    .intro__main-title {
+        font-size: 70px;
+    }
+
+    .intro__sup-title {
+        font-size: 35px;
+    }
+
+    /*    About    */
+    .about {
+        justify-content: center;
+    }
+
+    .about__item {
+        flex-basis: 50%;
+        margin: 15px;
+    }
+
+    /*    Statistics   */
+    .stats__item {
+        flex-basis: 33%;
+        border: 0;
+    }
+
+    .stats__item:last-child {
+        border-right: 0;
+    }
+
+    /*    Services   */
+    .services__item {
+        width: 45%;
+    }
+
+    .services__item:nth-child(1),
+    .services__item:nth-child(2),
+    .services__item:nth-child(3),
+    .services__item:nth-child(4) {
+        border-bottom: 1px solid black;
+    }
+
+}
+
+@media (max-width: 770px) {
+    /*Header Menu */
+    .header__menu {
+        display: block;
+    }
+        /* Nav  */
+    .nav {
+        display: none;
+    }
+
+    /*    Intro    */
+    .intro__main-title {
+        font-size: 70px;
+    }
+
+    .intro__sup-title {
+        font-size: 35px;
+    }
+
+    /*    Statistics   */
+    .stats__item {
+        flex-basis: 50%;
+    }
+
+
+}
+
+@media (max-width: 570px) {
+    /*    Intro    */
+    .intro__main-title {
+        font-size: 55px;
+    }
+
+    .intro__sup-title {
+        font-size: 30px;
+    }
+
+    /*    Statistics   */
+    .stats__item {
+        flex-basis: 100%;
+        border-bottom: 1px solid white;
+    }
+
+    /*    Services  */
+    .services {
+        justify-content: center;
+    }
+    .services__item {
+        width: 75%;
+        border-bottom: 1px solid black;
+    }
+
+    /*    Devices   */
+    .devices__smartphone {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+    }
+
+    .devices__tablet {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+    }
+
+
 }
