@@ -442,16 +442,16 @@ h1, h2, h3, h4, h5, h6 {
 .what-we-do {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
 }
 
 .what-we-do__item {
-    width: 49%;
+    flex-basis: 49%;
 }
 
 .what-we-do__img {
     width: 100%;
     max-width: 570px;
+    height: auto;
 }
 
 /* Accordion */
@@ -536,8 +536,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .quote__slider-inner {
-    position: relative;
     display: flex;
+    flex-wrap: wrap;
+    position: relative;
     width: 100%;
     max-width: 940px;
     justify-content: space-between;
@@ -545,19 +546,11 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
 }
 
-.quote__slider-quote-itself {
-    margin-left: 59px;
-    position: relative;
-}
-
-.quote__slider-name {
-    margin-top: 20px;
-}
-
 .quote__slider-icon-wrapper {
-    width: 100%;
+    display: inline-block;
+    flex-basis: 30%;
     max-width: 150px;
-    height: 100%;
+    height: auto;
     max-height: 150px;
     border: 3px solid #95e1d3;
     text-align: center;
@@ -575,12 +568,21 @@ h1, h2, h3, h4, h5, h6 {
     max-height: 210px;
 }
 
+.quote__slider-quote-itself {
+    flex-basis: 70%;
+    position: relative;
+}
+
+.quote__slider-name {
+}
+
 .quote__slider-text {
     font-size: 24px;
     color: #999;
 }
 
 .quote__slider-name {
+    margin-top: 20px;
     font-family: 'Kaushan Script', cursive;
     font-size: 24px;
     font-weight: 500;
@@ -1212,6 +1214,41 @@ h1, h2, h3, h4, h5, h6 {
         border-bottom: 1px solid black;
     }
 
+    /* What we do*/
+    .what-we-do {
+        flex-wrap: wrap;
+    }
+
+    .what-we-do__item {
+        margin: 0 auto;
+        text-align: center;
+        flex-basis: 80%;
+    }
+
+    /*    Accordion  */
+    .accordion {
+        margin-top: 30px;
+        text-align: center;
+        display: inline-block;
+        max-width: 520px;
+    }
+
+    /* Quote Slider*/
+    .quote__slider-text {
+        font-size: 19px;
+    }
+
+    .quote__slider-name {
+        font-size: 18px;
+    }
+
+    .quote__slider-quote-itself {
+        padding-left: 30px;
+    }
+
+    .quote__slider-name:before {
+        left: 7%;
+    }
 }
 
 @media (max-width: 770px) {
@@ -1238,6 +1275,43 @@ h1, h2, h3, h4, h5, h6 {
         flex-basis: 50%;
     }
 
+    /*    Quote Slider    */
+    .quote__slider-inner {
+        text-align: center;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .quote__slider-quote-itself {
+        flex-basis: 100%;
+    }
+
+    .quote__slider-icon-wrapper {
+        flex-basis: 100%;
+        margin: 0 auto;
+    }
+
+    .quote__slider-quote-itself {
+        flex-basis: 100%;
+    }
+
+    .quote__slider-name:before {
+        display: none;
+    }
+
+    .quote__prev-btn {
+        left: 10%;
+        top: 30%;
+    }
+
+    .quote__next-btn {
+        right: 10%;
+        top: 30%;
+    }
+
+    .quote__slider-name {
+        margin: 0 5%;
+    }
 
 }
 
@@ -1279,5 +1353,9 @@ h1, h2, h3, h4, h5, h6 {
         height: auto;
     }
 
+    /*    Accordion  */
+    .accordion {
+        max-width: 320px;
+    }
 
 }
